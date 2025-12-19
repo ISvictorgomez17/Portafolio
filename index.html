@@ -214,6 +214,120 @@
             color: #b0b0b0;
         }
 
+ /* Proyectos */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 255, 255, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 255, 255, 0.2);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, #00ffff 0%, #00ff88 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .view-project {
+            color: #00ffff;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-info h3 {
+            color: #00ffff;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .project-info p {
+            color: #b0b0b0;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: rgba(0, 255, 255, 0.1);
+            color: #00ffff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 255, 255, 0.1);
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 255, 255, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: #00ffff;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .service-card p {
+            color: #b0b0b0;
+        }
+
+
+
         /* Sobre mí */
         .about-content {
             display: grid;
@@ -372,6 +486,84 @@
                 <div class="service-icon">📊</div>
                 <h3>Gestión de Proyectos</h3>
                 <p>Planificación, ejecución y control de proyectos TI con metodologías ágiles y tradicionales.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proyectos -->
+    <section id="proyectos">
+        <h2 class="section-title">Proyectos Destacados</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">
+                    <div class="project-overlay">
+                        <span class="view-project">Ver proyecto →</span>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Sistema de Gestión Académica</h3>
+                    <p>Plataforma web completa para administración de cursos, estudiantes y calificaciones con panel de control interactivo.</p>
+                    <div class="project-tags">
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">MySQL</span>
+                        <span class="tag">Bootstrap</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <div class="project-overlay">
+                        <span class="view-project">Ver proyecto →</span>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>API RESTful E-commerce</h3>
+                    <p>API escalable para comercio electrónico con autenticación JWT, gestión de productos, carritos y procesamiento de pedidos.</p>
+                    <div class="project-tags">
+                        <span class="tag">Express.js</span>
+                        <span class="tag">MongoDB</span>
+                        <span class="tag">JWT</span>
+                        <span class="tag">Docker</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                    <div class="project-overlay">
+                        <span class="view-project">Ver proyecto →</span>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Dashboard Analítico en Tiempo Real</h3>
+                    <p>Panel de visualización de datos con gráficos interactivos y actualizaciones en tiempo real para análisis de métricas de negocio.</p>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Chart.js</span>
+                        <span class="tag">WebSocket</span>
+                        <span class="tag">PostgreSQL</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                    <div class="project-overlay">
+                        <span class="view-project">Ver proyecto →</span>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>App de Gestión de Tareas</h3>
+                    <p>Aplicación web responsive para gestión de proyectos con metodología Kanban, drag & drop y colaboración en equipo.</p>
+                    <div class="project-tags">
+                        <span class="tag">HTML5</span>
+                        <span class="tag">CSS3</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Firebase</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
