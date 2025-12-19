@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio - Ingeniero de Sistemas</title>
+    <title>VG Developer/Management</title>
     <style>
         * {
             margin: 0;
@@ -17,9 +17,10 @@
             color: #ffffff;
             line-height: 1.6;
             overflow-x: hidden;
+            transition: background 0.3s, color 0.3s;
         }
 
-/* Tema Claro */
+        /* Tema Claro */
         body.light-theme {
             background: #f5f5f5;
             color: #1a1a1a;
@@ -120,6 +121,25 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+
+        .theme-toggle {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            border-radius: 25px;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(0, 255, 255, 0.2);
+            border-color: rgba(0, 255, 255, 0.5);
         }
 
         .nav-links {
@@ -259,36 +279,7 @@
             gap: 2rem;
         }
 
-        .service-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 1px solid rgba(0, 255, 255, 0.1);
-            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(0, 255, 255, 0.5);
-            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .service-card h3 {
-            color: #00ffff;
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-        }
-
-        .service-card p {
-            color: #b0b0b0;
-        }
-
- /* Proyectos */
+        /* Proyectos */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -400,8 +391,6 @@
             color: #b0b0b0;
         }
 
-
-
         /* Sobre mí */
         .about-content {
             display: grid;
@@ -487,6 +476,16 @@
                 font-size: 0.9rem;
             }
 
+            nav {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .theme-toggle {
+                order: -1;
+                margin-left: auto;
+            }
+
             .about-content {
                 grid-template-columns: 1fr;
             }
@@ -501,14 +500,15 @@
     <!-- Header -->
     <header>
         <nav>
-            <div class="logo">VG Developer & Management </div>
+            <div class="logo">VG Developer/Management</div>
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
                 <li><a href="#sobre-mi">Sobre mí</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
-               <button class="theme-toggle" id="themeToggle">
+            <button class="theme-toggle" id="themeToggle">
                 <span id="themeIcon">🌙</span>
             </button>
         </nav>
@@ -518,7 +518,7 @@
     <section class="hero" id="inicio">
         <div class="hero-content">
             <h1>Victor Gómez Arizal</h1>
-            <p class="subtitle">Ingeniero de Sistemas</p>
+            <p class="subtitle">Ingeniero de Sistemas de Información</p>
             <p class="subtitle">Especialista en Gestión de TI | Desarrollador Full Stack</p>
             <p class="description">Transformando ideas en soluciones tecnológicas innovadoras</p>
             <a href="#contacto" class="cta-button">Trabajemos juntos</a>
@@ -686,15 +686,15 @@
             <div class="contact-info">
                 <div class="contact-item">
                     <h4>📧 Email</h4>
-                    <a href="mailto:tu-email@ejemplo.com">vgingenieriaycomunicaciones@gmail.com</a>
+                    <a href="mailto:tu-email@ejemplo.com">tu-email@ejemplo.com</a>
                 </div>
                 <div class="contact-item">
                     <h4>💼 LinkedIn</h4>
-                    <a href="#" target="_blank">linkedin.com/in/victor-mario-gomez-arizal-261029337</a>
+                    <a href="#" target="_blank">linkedin.com/in/tu-perfil</a>
                 </div>
                 <div class="contact-item">
                     <h4>💻 GitHub</h4>
-                    <a href="#" target="_blank">github.com/ISvictorgomez17</a>
+                    <a href="#" target="_blank">github.com/tu-usuario</a>
                 </div>
             </div>
         </div>
@@ -702,10 +702,35 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; ISVictorG 2024 - Todos los derechos reservados </p>
+        <p>&copy; 2024 - Todos los derechos reservados | Desarrollado con ❤️ y código</p>
     </footer>
 
     <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const body = document.body;
+
+        // Cargar tema guardado
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            body.classList.add('light-theme');
+            themeIcon.textContent = '☀️';
+        }
+
+        // Cambiar tema
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-theme');
+            
+            if (body.classList.contains('light-theme')) {
+                themeIcon.textContent = '☀️';
+                localStorage.setItem('theme', 'light');
+            } else {
+                themeIcon.textContent = '🌙';
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
         // Navegación suave
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -735,8 +760,8 @@
             });
         }, observerOptions);
 
-        // Observar las tarjetas de servicios
-        document.querySelectorAll('.service-card').forEach(card => {
+        // Observar las tarjetas de servicios y proyectos
+        document.querySelectorAll('.service-card, .project-card').forEach(card => {
             card.style.opacity = '0';
             card.style.transform = 'translateY(50px)';
             card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
